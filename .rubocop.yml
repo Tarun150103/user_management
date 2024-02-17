@@ -1,0 +1,125 @@
+require: 
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-performance
+
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 2.7.0
+  DisplayCopNames: true
+  Exclude:
+    - config/**/*
+    - db/**/*
+    - bin/**/*
+
+Layout/LineLength:
+  Max: 115
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/ModuleLength:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Style/GlobalVars:
+  Enabled: false
+
+Style/RedundantSelf:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
+
+Style/NegatedIf:
+  Enabled: false
+
+Style/DoubleNegation:
+  Enabled: false
+
+Rails/HasAndBelongsToMany:
+  Enabled: false
+
+Rails/HasManyOrHasOneDependent:
+  Enabled: false
+
+Layout/EndAlignment:
+  EnforcedStyleAlignWith: variable
+
+Layout/HashAlignment:
+  EnforcedColonStyle: key
+
+Layout/FirstHashElementIndentation:
+  EnforcedStyle: consistent
+
+
+Lint/RescueException:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Enabled: false
+
+RSpec/AnyInstance:
+  Enabled: false
+
+Style/SymbolProc:
+  Enabled: false
+
+Lint/ParenthesesAsGroupedExpression:
+  Enabled: false
+
+Layout/TrailingWhitespace:
+  Enabled: true
+
+Style/Alias:
+  Enabled: false
+
+Rails/FilePath:
+  Enabled: false
+
+Rails/UnknownEnv:
+  Enabled: true
+
+Rails/InverseOf:
+  Enabled: false
+
+Naming/MemoizedInstanceVariableName: 
+  Enabled: false
+
+Rails/UniqueValidationWithoutIndex:
+  Enabled: false
+
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false
+
+Naming/InclusiveLanguage:
+  Enabled: false
+
+Lint/MissingSuper:
+  Enabled: false
+
+Performance/MethodObjectAsBlock:
+  Enabled: false
