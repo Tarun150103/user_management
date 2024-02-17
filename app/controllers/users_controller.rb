@@ -4,10 +4,12 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
 
   def index
-    @users = if params[:role_id].present?
-      Role.find(params[:role_id]).users.order(:id)
+    per_page = params[:per_page] || 10
+    if params[:role_id].present?
+      role = Role.find(params[:role_id])
+      @users = role.users.order(:id).paginate(page: params[:page], per_page: per_page)
     else
-      User.order(:id)
+      @users = User.order(:id).paginate(page: params[:page], per_page: per_page)
     end
   end
 

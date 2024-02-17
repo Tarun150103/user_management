@@ -5,7 +5,8 @@ class RolesController < ApplicationController
   before_action :set_role, only: %i[show edit update destroy]
 
   def index
-    @roles = Role.all
+    per_page = params[:per_page] || 10
+    @roles = Role.all.paginate(page: params[:page], per_page: per_page)
   end
 
   def show; end
