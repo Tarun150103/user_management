@@ -1,17 +1,23 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: %i[show edit update destroy]
 
   def index
-    if params[:role_id].present?
-      @users = Role.find(params[:role_id]).users.order(:id)
+    @users = if params[:role_id].present?
+      Role.find(params[:role_id]).users.order(:id)
     else
-      @users = User.order(:id)
+      User.order(:id)
     end
   end
 
   def new
     @user = User.new
-    @roles = Role.all 
+    @roles = Role.all
+  end
+
+  def edit
+    @roles = Role.all
   end
 
   def create
@@ -23,10 +29,6 @@ class UsersController < ApplicationController
       @roles = Role.all
       render :new
     end
-  end
-
-  def edit
-    @roles = Role.all 
   end
 
   def update
@@ -49,7 +51,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render pdf: "user_details", template: "users/download"
+        render pdf: 'user_details', template: 'users/download'
       end
     end
   end
