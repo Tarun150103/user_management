@@ -1,0 +1,53 @@
+<%= form_with(model: user) do |form| %>
+  <% if user.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :first_name, style: "display: block" %>
+    <%= form.text_field :first_name %>
+  </div>
+
+  <div>
+    <%= form.label :last_name, style: "display: block" %>
+    <%= form.text_field :last_name %>
+  </div>
+
+    <div >
+    <%= form.label :role_id %>
+    <%= form.select :role_id, options_for_select(@roles.map { |role| [role.name, role.id] }) %>
+  </div>
+
+<div>
+  <%= form.label :image, "Upload file", style: "display: block; cursor: pointer;" %>
+  <%= form.file_field :image, style: "display: none;", onchange: "displayFileName(this)" %>
+  <%= form.text_field :image, placeholder: "No file chosen", readonly: true, onclick: "selectFile()" %>
+</div>
+
+<script>
+  function selectFile() {
+    document.querySelector('input[type="file"]').click();
+  }
+
+  function displayFileName(input) {
+    if (input.files.length > 0) {
+      const fileName = input.files[0].name;
+      const textField = input.parentNode.querySelector('input[type="text"]');
+      textField.value = fileName;
+    }
+  }
+</script>
+
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,10 @@
+<!-- app/views/users/_form.html.erb -->
+<%= form_with(model: @user, local: true) do |form| %>
+  <!-- Other form fields... -->
+  <div class="field">
+    <%= form.label :role_name %>
+    <% available_roles = @roles.reject { |role| role.last == @user.role_name } %>
+    <%= form.select :role_name, options_for_select(available_roles, @user.role_name) %>
+  </div>
+  <!-- Other form fields... -->
+<% end %>

@@ -1,0 +1,12 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @user %>
+
+<div>
+  <%= link_to "Edit this user", edit_user_path(@user) %> |
+  <%= link_to "Back to users", users_path %>
+<%= link_to 'Download as PDF', download_users_path(format: :pdf), class: 'btn btn-primary' %>
+
+
+  <%= button_to "Destroy this user", @user, method: :delete %>
+</div>
