@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    @roles = Role.all # Assuming you have a Role model and want to populate roles in the select box
+    @roles = Role.all 
   end
 
   def create
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @roles = Role.all # Assuming you have a Role model
+    @roles = Role.all 
   end
 
   def update
