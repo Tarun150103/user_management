@@ -5,7 +5,7 @@ class RolesController < ApplicationController
   before_action :set_role, only: %i[show edit update destroy]
 
   def index
-    @roles = Role.all.page(params[:page])
+    @roles = Role.all
   end
 
   def show; end
