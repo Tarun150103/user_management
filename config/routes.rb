@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   resources :users do
-    collection do
-      get 'download', to: 'users#download' # Use 'to' instead of 'action' for clarity
-    end
+      collection do
+    get 'download', to: 'users#download' # Use 'to' instead of 'action' for clarity
+  end
   end
   resources :roles
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

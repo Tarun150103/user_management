@@ -48,7 +48,7 @@ class UsersController < ApplicationController
   end
 
   def download
-    @users = User.all
+    @users = User.find(params[:id])
 
     respond_to do |format|
       format.html
