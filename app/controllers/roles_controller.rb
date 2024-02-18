@@ -7,6 +7,7 @@ class RolesController < ApplicationController
   def index
     per_page = params[:per_page] || 10
     @roles = Role.all.paginate(page: params[:page], per_page: per_page)
+      @role_user_counts = Role.includes(:users).map { |role| [role.id, role.users.count] }.to_h
   end
 
   def show; end
